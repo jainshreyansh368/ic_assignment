@@ -1,3 +1,29 @@
+type Todo = record {
+    "title": text;
+    "content": text;
+    "completed": text;
+};
+
+type RouteResult = variant {
+    Ok: text;
+    Err: text;
+};
+
+type TodoResult = variant {
+    Ok: Todo;
+    Err: text;
+};
+
+type TodosResult = variant {
+    Ok: vec Todo;
+    Err: text;
+};
+
+
 service : {
-    "greet": (text) -> (text) query;
+    "get": (text) -> (TodoResult) query;
+    "insert": (Todo) -> (RouteResult);
+    "update": (text, Todo) -> (RouteResult);
+    "delete_entry": (text) -> (RouteResult);
+    "get_all_todos": () -> (TodosResult) query;
 }
