@@ -1,0 +1,30 @@
+{
+  "canisters": {
+    "icp_assignment_backend": {
+      "candid": "src/icp_assignment_backend/icp_assignment_backend.did",
+      "package": "icp_assignment_backend",
+      "type": "rust"
+    },
+    "icp_assignment_frontend": {
+      "dependencies": [
+        "icp_assignment_backend"
+      ],
+      "frontend": {
+        "entrypoint": "src/icp_assignment_frontend/src/index.html"
+      },
+      "source": [
+        "src/icp_assignment_frontend/assets",
+        "dist/icp_assignment_frontend/"
+      ],
+      "type": "assets"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
